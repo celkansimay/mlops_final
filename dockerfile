@@ -13,7 +13,7 @@ RUN mkdir /app
 WORKDIR /app
 COPY requirements.txt .
 RUN pip install update pip && pip install -r requirements.txt
-COPY main.py  diabetes_knn_model.pkl /app/
+COPY main.py  xgboost.pkl /app/
 CMD [ "uvicorn","main:app","--host=0.0.0.0","--port=8000" ]
 
 #docker build -t knn_api_image:v1 .                ----> docker ı inşaa ediyoruz.
