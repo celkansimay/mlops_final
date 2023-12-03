@@ -35,18 +35,18 @@ jobs:
 
       - name: Build the container image
         run: |
-          docker build -t us-central1-docker.pkg.dev/${PROJECT_ID}/mlops1/fastapi:latest .
+          docker build -t us-central1-docker.pkg.dev/${PROJECT_ID}/mlops/fastapi:latest .
 
       - name: Push image to Artifact Registry
         run: |
           gcloud auth configure-docker us-central1-docker.pkg.dev
-          docker push us-central1-docker.pkg.dev/${PROJECT_ID}/mlops1/fastapi:latest
+          docker push us-central1-docker.pkg.dev/${PROJECT_ID}/mlops/fastapi:latest
 
       - name: Deploy to Cloud Run 
         uses: 'google-github-actions/deploy-cloudrun@v1'
         with:
           service: fastapi 
-          image: us-central1-docker.pkg.dev/${{secrets.PROJECT_ID}}/mlops1/fastapi:latest
+          image: us-central1-docker.pkg.dev/${{secrets.PROJECT_ID}}/mlops/fastapi:latest
           region: us-central1
           platform: managed
           allow-unauthenticated: true
