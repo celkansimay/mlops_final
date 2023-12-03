@@ -30,7 +30,7 @@ jobs:
       - name: Set up gcloud CLI
         uses: 'google-github-actions/auth@v1'
         with:
-          credential_json: ${{secrets.CREDENTIALS_JSON}}
+          credentials_json: ${{secrets.CREDENTIALS_JSON}}
           service_account_key: ${{secrets.SERVICE_ACCOUNT}}
           export_default_credentials: true
 
